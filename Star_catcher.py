@@ -2,7 +2,6 @@ import pygame
 import random
 import sys
 
-# Initialize Pygame
 pygame.init()
 
 # Constants
@@ -15,7 +14,7 @@ STAR_COLOR = (255, 255, 0)
 BOMB_COLOR = (255, 0, 0)
 FONT = pygame.font.Font(None, 36)
 
-# Create the screen
+
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Collect the Falling Stars")
 
@@ -27,7 +26,7 @@ player_speed = 5
 # star speed
 fall_speed = 5
 
-# Create a list to store the stars
+# list to store the stars
 stars = []
 bombs = []
 
@@ -73,7 +72,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    # Move the player
+    # Moving the player
     keys = pygame.key.get_pressed()
     if keys[pygame.K_LEFT]:
         player_x -= player_speed
@@ -96,7 +95,7 @@ while running:
                 # quit the game
                 running = False
 
-    # Check for collisions between player and stars
+    # Checking for collisions between player and stars
     for star in stars:
         if pygame.Rect(player_x, player_y, PLAYER_SIZE, PLAYER_SIZE).colliderect(star):
             stars.remove(star)
@@ -104,7 +103,6 @@ while running:
 
 
 
-    # INTRODUCE GRAVITY
     # Move the stars
     for star in stars:
         star.y += fall_speed
